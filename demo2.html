@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>demo2</title>
+		<style>
+			body,div,h1,p,a{
+				margin: 0;
+				padding: 0;
+			}
+			#pn{
+				background: #e8e8e8;
+				height: 60px;
+				width: 600px;
+				display: block;
+				margin: 0 auto;
+				padding: 5px;
+				font-size: 9pt;
+				height: auto;
+				text-align: center;
+			}
+			.slide{
+				width: 600px;
+				border-top:4px solid gray;
+				margin: 0 auto;
+			}
+			.btn-slide{
+				background: gray;
+				text-align: center;
+				width: 590px;
+				height: 30px;
+				padding: 10px 10px 0 0;
+				margin: 0 auto;
+				display: block;
+				color: #fff;
+				text-decoration: none;
+			}
+		</style>
+		<script type="text/javascript">
+			var time=300;
+			var h=0;
+			function addCount(){
+				if(time>0){
+					time--;
+					h+=5;
+				}else{
+					return;
+				}
+				
+				if(h>=300)
+				{
+					return;
+				}else{
+					document.getElementById("pn").style.height=h+'px';
+				}
+				setTimeout("addCount()",30);
+			}
+			window.onload=function showAds(){
+				addCount();
+				setTimeout("noneAds()",2000);
+			}
+			var T=300;
+			var height=300;
+			function noneAds(){
+				if(T>0){
+					T--;
+					height-=5;
+				}else{
+					return;
+				}
+				if(height<=0){
+					document.getElementById("pn").style.display="none";
+					//document.getElementById("pn").style.height = "30px";
+					return;
+				}else{
+					document.getElementById("pn").style.height=height+'px';
+				}
+				setTimeout("noneAds()",30);
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<div id="pn">
+				<h1>嗯。。。。。这是title</h1>
+			</div>
+			<p class="slide">
+				<a href="javascript:;" id="strHref" class="btn-slide">welcome！</a>
+			</p>
+		</div>
+	</body>
+</html>
